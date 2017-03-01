@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+              <!-- Le styles -->
+            <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+            <link type="text/css" href="css/custom-theme/jquery-ui-1.10.0.custom.css" rel="stylesheet" />
+            <link type="text/css" href="assets/css/font-awesome.min.css" rel="stylesheet" />
+            <!--[if IE 7]>
+            <link rel="stylesheet" href="assets/css/font-awesome-ie7.min.css">
+            <![endif]-->
+            <!--[if lt IE 9]>
+            <link rel="stylesheet" type="text/css" href="css/custom-theme/jquery.ui.1.10.0.ie.css"/>
+            <![endif]-->
+            <link href="assets/css/docs.css" rel="stylesheet">
+            <link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+
+            <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+            <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+            <![endif]-->
+<style>
+/* Custom, iPhone Retina */ 
+@media only screen and (min-width : 320px) 
+{
+	.logo
+	{
+		text-align:center;
+	}
+	
+}
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+#button-filter
+{
+background:none; padding: 0px; border:none; color:white;
+}
+#button-filter span
+{
+display:inline-block; font-size: 30px;
+}
+.input-group
+{
+width:80%;
+margin-right:5px;
+float:left;
+}
+.filter-text
+{
+color:#FFFF !important;
+font-size:24px;
+font-weight:12;
+text-decoration:none;
+}	  
+.dropdown-menu
+{
+padding:15px;
+border:none;
+}
+
+.bs-button-icon-list {
+    list-style: outside none none;
+    padding-left: 0;
+    margin-bottom: 10px;
+    margin-top: 0;
+}
+
+.bs-button-icon-list li {
+    font-size: 14px;
+    width: 80px;
+    background-color: #f9f9f9;
+    border: 1px solid #fff;
+    float: left;
+    height: 75px;
+    line-height: 1.4;
+    padding: 10px;
+    text-align: center;
+}
+.glyphicon
+{
+display:block;
+font-size: 20px;
+}
+.glyphicon-class
+{
+font-size:12px;
+}
+.dropdown
+{
+width: 90%;
+}
+.distance-slider
+{
+padding:5px; 
+width:95%;
+}
+</style>
+<script>
+  $( function() {
+    $( "#popularity" ).slider();
+	$( "#distance" ).slider();
+	$( "#price" ).slider();
+  } );
+  </script>  
+</head>
+<body>
+
+<header id="header-search" class="navbar navbar-inverse navbar-fixed-top">
+	  <div class="row">
+		<div class="col-sm-2">
+		  <h3 class="logo">neighbourhood.me</h3>
+		</div>
+		<div class="col-sm-10">
+		   <div class="input-group">
+				<span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span>
+				<input id="location-search-textbox" type="text" class="form-control" name="location-search-textbox" placeholder="Location">
+		   </div>
+		   <div class="dropdown">
+			<button type="button" id="button-filter" class="btn btn-default dropdown-toggle filter-button" data-toggle="dropdown">
+				<span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+			</button>
+			
+			<ul class="dropdown-menu" role="menu">
+			<li class="distance-slider">
+					<h4>Distance</h4>
+					<div id="distance"></div>
+			</li>
+			<li>
+				<ul class="bs-button-icon-list">
+					<li>
+						<span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
+						<span class="glyphicon-class">Everything</span>
+					</li>
+					<li>
+						<span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>
+						<span class="glyphicon-class">Restaurants</span>
+					</li>
+					<li>
+						<span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
+						<span class="glyphicon-class">Shopping malls</span>
+					</li>
+					<li>
+						<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+						<span class="glyphicon-class">Grocery</span>
+					</li>
+					<li>
+						<span class="glyphicon glyphicon-piggy-bank" aria-hidden="true"></span>
+						<span class="glyphicon-class">Banks</span>
+					</li>	
+					<li>
+						<span class="glyphicon glyphicon-oil" aria-hidden="true"></span>
+						<span class="glyphicon-class">Hospitals</span>
+					</li>					
+					<li>
+						<span class="glyphicon glyphicon-education" aria-hidden="true"></span>
+						<span class="glyphicon-class">Schools</span>
+					</li>
+					<li>
+						<span class="glyphicon glyphicon-education" aria-hidden="true"></span>
+						<span class="glyphicon-class">Worship</span>
+					</li>					
+					<li>
+						<span class="glyphicon glyphicon-tree-deciduous" aria-hidden="true"></span>
+						<span class="glyphicon-class">Parks</span>
+					</li>					
+					<li>
+						<span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
+						<span class="glyphicon-class">Fitness Centers</span>
+					</li>
+					<li>
+						<span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
+						<span class="glyphicon-class">Public Transport</span>
+					</li>
+					<li>
+						<span class="glyphicon glyphicon-oil" aria-hidden="true"></span>
+						<span class="glyphicon-class">Gas Stations</span>
+					</li>					
+				</ul>
+			</li>
+			</ul>
+		</div>
+		</div>
+		</div>
+</header>
+<div id="map"></div>
+    <script>
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -34.397, lng: 150.644},
+          zoom: 8
+        });
+      }
+	  /* On bottom after google apis call, write if statement in PHP to 
+	  see if location or address is passed and valid 
+	  no need to do geolocation with current address else 
+	  do geolocation with current address;
+	  */
+  </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyByADwYNWZd5OoQ0rMFU36MkJ4RUwV2iGY&v=3.exp&signed_in=true&libraries=places&region=US&callback=initMap"></script>
+	 <script src="scripts/index.js"></script>
+  </body>
+</html>
